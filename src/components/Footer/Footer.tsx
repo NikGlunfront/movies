@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App = () => {
+const Footer = () => {
     return (
         <div>
-            HEllo
+            
         </div>
     );
 };
 
-export default App;
+export default Footer;
