@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import MovieListing from '../../components/MovieListing/MovieListing';
 import axios from 'axios';
+import { apiKey } from '../../common/API/key/apiKeyMovie';
 import movieApi from '../../common/API/MovieApi';
-import { apiKey } from '../../common/API/apiKeyMovie';
 
 const Home = () => {
     const [movies, setMovies] = useState([])
