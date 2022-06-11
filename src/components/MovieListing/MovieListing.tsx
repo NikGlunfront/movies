@@ -3,24 +3,28 @@ import './MovieListing.scss';
 
 const MovieListing = () => {
     return (
-        <div className="movie-listing__box">
-            <div className="item-listing">
+        <section className="section movie-listing">
+            <div className="container">
+                <div className="movie-listing__box">
+                    <div className="item-listing">
 
-            </div>
-            <div className="item-listing">
+                    </div>
+                    <div className="item-listing">
 
-            </div>
-            <div className="item-listing">
+                    </div>
+                    <div className="item-listing">
 
-            </div>
-            <div className="item-listing">
+                    </div>
+                    <div className="item-listing">
 
-            </div>
-            <div className="item-listing">
+                    </div>
+                    <div className="item-listing">
 
+                    </div>
+                
+                </div>
             </div>
-            
-        </div>
+        </section>
     );
 };
 

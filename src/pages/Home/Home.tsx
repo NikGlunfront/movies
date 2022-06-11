@@ -2,21 +2,19 @@ import React, { useEffect, useState } from 'react';
 import MovieListing from '../../components/MovieListing/MovieListing';
 import axios from 'axios';
 import { apiKey } from '../../common/API/key/apiKeyMovie';
-import { fetchMovies } from '../../common/API/MovieApi';
+import { fetchEpisodes, IEpisode } from '../../common/API/EpisodesApi';
 
 const Home = () => {
-    const [movies, setMovies] = useState([])
+    const [episodes, setEpisodes] = useState<IEpisode[]>([] as IEpisode[])
 
     useEffect(() => {
-        // fetchMovies()
+        fetchEpisodes()
     }, [])
 
     return (
-        <section className='section'>
-            <div className="container">
-                <MovieListing />
-            </div>
-        </section>
+        <>
+            <MovieListing />
+        </>
     );
 };
 
