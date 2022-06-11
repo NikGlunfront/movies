@@ -1,0 +1,18 @@
+@import '../../common/colors.scss';
+
+.movie-listing {
+    &__box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
+
+.item-listing {
+    width: 200px;
+    height: 400px;
+    background-color: $font-secondary;
+    border: 5px solid $font-primary;
+    border-radius: 30px;
+    margin: 20px 20px 20px 0;
+}

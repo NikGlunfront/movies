@@ -1,9 +1,25 @@
 import React from 'react';
+import './MovieListing.scss';
 
 const MovieListing = () => {
     return (
-        <div>
-            MovieListing
+        <div className="movie-listing__box">
+            <div className="item-listing">
+
+            </div>
+            <div className="item-listing">
+
+            </div>
+            <div className="item-listing">
+
+            </div>
+            <div className="item-listing">
+
+            </div>
+            <div className="item-listing">
+
+            </div>
+            
         </div>
     );
 };

@@ -8,14 +8,15 @@ const Home = () => {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
-        fetchMovies()
+        // fetchMovies()
     }, [])
 
     return (
-        <div>
-            <div className='banner-img'></div>
-            <MovieListing />
-        </div>
+        <section className='section'>
+            <div className="container">
+                <MovieListing />
+            </div>
+        </section>
     );
 };
 
