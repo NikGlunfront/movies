@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { IEpisode } from '../../models/IEpisode';
 import MovieCard from '../MovieCard/MovieCard';
+import Spinner from '../Spinner/Spinner';
 import './MovieListing.scss';
 
 interface MovieListingProps {
@@ -9,24 +10,28 @@ interface MovieListingProps {
     error: string
 }
 
-const MovieListing: FC<MovieListingProps> = ({episodes, error, isLoading}) => {
+const MovieListing: FC<MovieListingProps> = ({episodes, error, isLoading}) => { 
+    const somevalue = true
 
-    // isLoading && return 
     return (
         <section className="section movie-listing">
             <div className="container">
-                <div className="movie-listing__box">
-                    {error
-                        ? <div className='movie-listing__error'>{error}</div>
-                        : episodes.map(episode => 
-                            <MovieCard 
-                                episode={episode} 
-                                key={episode.episode_id}
-                            />
-                        )
-                    }
-                
-                </div>
+                {somevalue 
+                    ? <Spinner />
+                    : 
+                    <div className="movie-listing__box">
+                        {error
+                            ? <div className='movie-listing__error'>{error}</div>
+                            : episodes.map(episode => 
+                                <MovieCard 
+                                    episode={episode} 
+                                    key={episode.episode_id}
+                                />
+                            )
+                        }
+                    
+                    </div>
+                }
             </div>
         </section>
     );
