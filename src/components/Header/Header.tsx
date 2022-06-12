@@ -9,7 +9,7 @@ const Header = () => {
             <div className="container">
                 <div className='header__content'>
                     <Link className='header__logo' to={'/'}>
-                        <span>Movie App</span>
+                        <span>Breaking Bad Series</span>
                     </Link>
                     <div className='header__user-image'>
                         <FaUserCircle />

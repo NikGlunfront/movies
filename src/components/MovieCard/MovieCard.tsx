@@ -10,15 +10,30 @@ interface MovieCardProps {
 
 const MovieCard: FC<MovieCardProps> = ({episode}) => {
     return (
-        <Link 
-            to={`/movie/${episode.episode_id}`} 
+        <div  
             className='item-listing'
         >
-            <img src={image} alt="card" />
+            <Link 
+                to={`/movie/${episode.episode_id}`}
+                className='item-listing__image' 
+            >
+                <img src={image} alt="card" />
+            </Link>
             <div className="item-listing__info">
-                <div className='item-listing__title'>{episode.title}</div>
+                <div className='item-listing__title'>
+                    <span>Episode №{episode.episode}: </span>
+                    <p>{episode.title}</p>
+                </div>
+                <p>Release date: {episode.air_date}</p>
+                <Link 
+                    to={`/movie/${episode.episode_id}`}
+                    className='item-listing__btn-more' 
+                >
+                    Подробнее
+                </Link>
             </div>
-        </Link>
+            
+        </div>
     );
 };
 

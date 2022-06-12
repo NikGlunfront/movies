@@ -4,10 +4,11 @@
     flex: 0 0 30%;
     display: flex;
     flex-direction: column;
+    position: relative;
     min-width: 400px;
-    height: 400px;
+    // height: 400px;
     overflow: hidden;
-    border: 1px solid #F5F5F5;
+    border: 1px solid $light-grey-color;
     box-shadow: 0 0 2px $font-primary,
         0 0 5px $font-primary,
         0 0 10px $font-primary;
@@ -15,9 +16,64 @@
     margin: 20px 20px 20px 0;
     color: $font-primary;
     text-decoration: none;
+    transition: all .3s linear;
 
     &__info {
-        margin-top: 30px;
         padding: 30px;
+        
+        p {
+            margin: 10px 0;
+        }
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    &__title {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        &:hover {
+            box-shadow: 0 0 5px $neon-blue-color,
+                        0 0 10px $neon-blue-color,
+                        0 0 15px $neon-blue-color;
+            transform: scale(102%);
+        }
+    }
+
+    &__btn-more {
+        display: block;
+        margin-top: 20px;
+        padding: 15px;
+        margin: 20px auto;
+        border: 1px solid #F5F5F5;
+        border-radius: 15px;
+        max-width: fit-content;
+        text-decoration: none;
+        color: $white-color;
+        background-color: $dark-neon-blue-color;
+        transition: all .3s ease;
+
+        &:hover {
+            box-shadow: 0 0 5px $neon-blue-color,
+                    0 0 10px $neon-blue-color,
+                    0 0 15px $neon-blue-color;
+        }
     }
 }
