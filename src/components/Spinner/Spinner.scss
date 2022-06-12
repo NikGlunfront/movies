@@ -25,22 +25,22 @@
         top: calc(50% - 5px);
         width: 10px;
         height: 10px;
-        background: #1F51FF;
+        min-width: 6px;
+        min-height: 6px;
+        background: #14faff;
         border-radius: 50%;
-        box-shadow: 0 0 10px #1F51FF,
-            0 0 20px #1F51FF,
-            0 0 30px #1F51FF,
-            0 0 40px #1F51FF,
-            0 0 50px #1F51FF,
-            0 0 60px #1F51FF;
+        box-shadow: 0 0 10px #14faff,
+            0 0 20px #14faff,
+            0 0 30px #14faff,
+            0 0 40px #14faff,
+            0 0 50px #14faff,
+            0 0 60px #14faff;
         transform: scale(0.1);
         animation: animate 1s linear infinite;
     }
 
     &__circle {
         position: relative;
-        width: 150px;
-        height: 150px;
         margin: 0 -5px;
 
         &:nth-child(2) {

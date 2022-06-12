@@ -1,60 +1,53 @@
 import React, { FC } from 'react';
 import './Spinner.scss';
+import SpinnerCircle from './SpinnerCircle';
 
-interface ISpinner {
+interface SpinnerProps {
+    width: number
+}
+
+export interface ISpinnerDot {
     dot_id: number,
     dotArea_transform: string,
-    dot_animationDelay: string
+    dot_animationDelay: string,
+    dot_animationSpeed: string
 }
 
 
-const Spinner: FC = ({}) => {
-    const leftSpinnerDots: ISpinner[] = []
-    const rightSpinnerDots: ISpinner[] = []
+const Spinner: FC<SpinnerProps> = ({width}) => {
+    const leftSpinnerDots: ISpinnerDot[] = []
+    const rightSpinnerDots: ISpinnerDot[] = []
+    const dotSize: number = width / 15 / 2
+    const animationSpeed:number = 1
+
     for (let i = 0; i < 21; i++) {
         leftSpinnerDots.push({
             dot_id: i,
-            dot_animationDelay: `calc(0.025s * ${i})`,
-            dotArea_transform: `rotate(calc(18deg * ${i}))` 
+            dot_animationDelay: `calc(${animationSpeed / 40}s * ${i})`,
+            dotArea_transform: `rotate(calc(18deg * ${i}))`,
+            dot_animationSpeed: `${animationSpeed}s`
         })
         rightSpinnerDots.push({
             dot_id: i,
-            dot_animationDelay: `calc(-0.025s * ${i})`,
-            dotArea_transform: `rotate(calc(18deg * ${i}))` 
+            dot_animationDelay: `calc(-${animationSpeed / 40}s * ${i})`,
+            dotArea_transform: `rotate(calc(18deg * ${i}))`,
+            dot_animationSpeed: `${animationSpeed}s`
         })
     }
 
     return (
         <div className='preloader'>
             <div className="preloader__container">
-                <div className='preloader__circle'>
-                    {leftSpinnerDots.map(dot => 
-                        <div 
-                            key={dot.dot_id} 
-                            className='preloader__dot-area'
-                            style={{transform: `${dot.dotArea_transform}`}}
-                        >
-                            <span 
-                                className='preloader__dot'
-                                style={{animationDelay: `${dot.dot_animationDelay}`}}
-                            ></span>
-                        </div>    
-                    )}
-                </div>
-                <div className='preloader__circle'>
-                    {rightSpinnerDots.map(dot => 
-                        <div 
-                            key={dot.dot_id} 
-                            className='preloader__dot-area'
-                            style={{transform: `${dot.dotArea_transform}`}}
-                        >
-                            <span 
-                                className='preloader__dot'
-                                style={{animationDelay: `${dot.dot_animationDelay}`}}
-                            ></span>
-                        </div>    
-                    )}
-                </div>
+                <SpinnerCircle 
+                    dotArray={leftSpinnerDots}
+                    dotSize={dotSize}
+                    width={width}
+                />
+                <SpinnerCircle 
+                    dotArray={rightSpinnerDots}
+                    dotSize={dotSize}
+                    width={width}
+                />
             </div>
         </div>
     );

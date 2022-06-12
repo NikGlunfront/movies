@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { IEpisode } from '../../models/IEpisode';
 import MovieCard from '../MovieCard/MovieCard';
 import Spinner from '../Spinner/Spinner';
@@ -10,14 +10,19 @@ interface MovieListingProps {
     error: string
 }
 
-const MovieListing: FC<MovieListingProps> = ({episodes, error, isLoading}) => { 
-    const somevalue = true
+const MovieListing: FC<MovieListingProps> = ({episodes, error, isLoading}) => {
+    const [isSpinnerLoading, setIsSpinnerLoading] = useState<boolean>(true) 
 
+    useEffect(() => {
+        setTimeout(() => {
+            setIsSpinnerLoading(isLoading)
+        }, 2000);
+    }, [])
     return (
         <section className="section movie-listing">
             <div className="container">
-                {somevalue 
-                    ? <Spinner />
+                {isSpinnerLoading 
+                    ? <Spinner width={200} />
                     : 
                     <div className="movie-listing__box">
                         {error
