@@ -13,6 +13,30 @@
     &__box {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+    }
+
+    &__season-row {
+        display: flex;
+        border: 1px solid #f5f5f5;
+        border-radius: 15px;
+        overflow: hidden;
+        max-width: fit-content;
+        margin-bottom: 40px;
+    }
+
+    &__season-tab {
+        padding: 15px;
+        border-right: 1px solid #f5f5f5;
+        cursor: pointer;
+        transition: all .3s ease-in;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        &_active {
+            background-color: #03697D;
+            font-weight: 700;
+        }
     }
 }

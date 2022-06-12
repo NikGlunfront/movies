@@ -7,32 +7,53 @@ import './MovieListing.scss';
 interface MovieListingProps {
     isLoading: boolean,
     episodes: IEpisode[],
-    error: string
+    error: string,
+    seasonsCount: number
+    currentSeason: number,
+    setSeason: (season: number) => void
 }
 
-const MovieListing: FC<MovieListingProps> = ({episodes, error, isLoading}) => {
-    const [isSpinnerLoading, setIsSpinnerLoading] = useState<boolean>(true) 
+const MovieListing: FC<MovieListingProps> = ({
+    episodes, error, isLoading, seasonsCount, currentSeason, setSeason
+}) => {
+
+    const [isSpinnerLoading, setIsSpinnerLoading] = useState<boolean>(true)
+    const seasonsArr: number[] = Array.from(Array(seasonsCount + 1).keys()).slice(1)
 
     useEffect(() => {
         setTimeout(() => {
             setIsSpinnerLoading(isLoading)
-        }, 2000);
+        }, 1000);
     }, [])
+
     return (
         <section className="section movie-listing">
             <div className="container">
                 {isSpinnerLoading 
                     ? <Spinner width={200} />
                     : 
-                    <div className="movie-listing__box">
+                    <div className="movie-listing__content">
+                        <div className="movie-listing__season-row">
+                            {seasonsArr.map(season => 
+                                <div 
+                                    key={season} 
+                                    onClick={() => setSeason(season)}
+                                    className={['movie-listing__season-tab', season === currentSeason && 'movie-listing__season-tab_active'].join(' ')}
+                                >
+                                    Сезон {season}
+                                </div>    
+                            )}
+                        </div>
                         {error
                             ? <div className='movie-listing__error'>{error}</div>
-                            : episodes.map(episode => 
-                                <MovieCard 
-                                    episode={episode} 
-                                    key={episode.episode_id}
-                                />
-                            )
+                            : <div className="movie-listing__box">
+                                {episodes.map(episode => 
+                                    <MovieCard 
+                                        episode={episode} 
+                                        key={episode.episode_id}
+                                    />
+                                )}
+                            </div>
                         }
                     
                     </div>
