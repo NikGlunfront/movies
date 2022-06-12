@@ -1,0 +1,18 @@
+@import '../../common/colors.scss';
+
+.item-listing {
+    flex: 0 0 30%;
+    min-width: 400px;
+    height: 400px;
+    padding: 30px;
+    background-image: url('../../assets/card-image.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border: 1px solid #F5F5F5;
+    box-shadow: 0 0 2px $font-primary,
+        0 0 5px $font-primary,
+        0 0 10px $font-primary;
+    border-radius: 30px;
+    margin: 20px 20px 20px 0;
+}

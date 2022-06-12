@@ -2,18 +2,25 @@ import React, { useEffect, useState } from 'react';
 import MovieListing from '../../components/MovieListing/MovieListing';
 import axios from 'axios';
 import { apiKey } from '../../common/API/key/apiKeyMovie';
-import { fetchEpisodes, IEpisode } from '../../common/API/EpisodesApi';
+import { IEpisode } from '../../models/IEpisode';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchEpisodes } from '../../store/slices/episodes/episodesFetch';
 
 const Home = () => {
-    const [episodes, setEpisodes] = useState<IEpisode[]>([] as IEpisode[])
+    const {episodes, error, isLoading} = useAppSelector(state => state.episodes)
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        fetchEpisodes()
+        dispatch(fetchEpisodes())
     }, [])
 
     return (
         <>
-            <MovieListing />
+            <MovieListing 
+                episodes={episodes}
+                error={error}
+                isLoading={isLoading}
+            />
         </>
     );
 };
