@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { IEpisode } from '../../models/IEpisode';
-import './MovieCard.scss';
+import './EpisodeCard.scss';
 import image from '../../assets/card-image.jpg'
 
 interface MovieCardProps {
     episode: IEpisode
 }
 
-const MovieCard: FC<MovieCardProps> = ({episode}) => {
+const EpisodeCard: FC<MovieCardProps> = ({episode}) => {
     return (
         <div  
             className='item-listing'
@@ -37,4 +37,4 @@ const MovieCard: FC<MovieCardProps> = ({episode}) => {
     );
 };
 
-export default MovieCard;
+export default EpisodeCard;

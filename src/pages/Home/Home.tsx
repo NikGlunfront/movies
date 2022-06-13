@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MovieListing from '../../components/MovieListing/MovieListing';
+import MovieListing from '../../components/EpisodeListing/EpisodeListing';
 import axios from 'axios';
 import { IEpisode } from '../../models/IEpisode';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';

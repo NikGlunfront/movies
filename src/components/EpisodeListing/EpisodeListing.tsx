@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 import { IEpisode } from '../../models/IEpisode';
-import MovieCard from '../MovieCard/MovieCard';
+import MovieCard from '../EpisodeCard/EpisodeCard';
 import Spinner from '../Spinner/Spinner';
-import './MovieListing.scss';
+import './EpisodeListing.scss';
 
-interface MovieListingProps {
+interface EpisodeListingProps {
     isLoading: boolean,
     episodes: IEpisode[],
     error: string,
@@ -13,7 +13,7 @@ interface MovieListingProps {
     setSeason: (season: number) => void
 }
 
-const MovieListing: FC<MovieListingProps> = ({
+const EpisodeListing: FC<EpisodeListingProps> = ({
     episodes, error, isLoading, seasonsCount, currentSeason, setSeason
 }) => {
 
@@ -63,4 +63,4 @@ const MovieListing: FC<MovieListingProps> = ({
     );
 };
 
-export default MovieListing;
+export default EpisodeListing;
