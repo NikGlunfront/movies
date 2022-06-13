@@ -1,20 +1,18 @@
 import React, { FC, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { changeTheme, Themes } from '../../store/slices/theme/themeSlice';
 import './Toggler.scss';
 
-interface TogglerProps {
-    setIsThemeBlack: (isTrue:boolean) => void
-}
-
-const Toggler: FC<TogglerProps> = ({setIsThemeBlack}) => {
+const Toggler = () => {
     const [isChecked, setIsChecked] = useState<boolean>(true)
+    const {theme} = useAppSelector(state => state.theme)
+    const dispatch = useAppDispatch()
 
     function changeHandler() {
         setIsChecked(!isChecked)
+        dispatch(changeTheme())
     }
 
-    useEffect(() => {
-        setIsThemeBlack(isChecked)
-    }, [isChecked])
 
     return (
         <div className="theme-toggler">
@@ -30,7 +28,7 @@ const Toggler: FC<TogglerProps> = ({setIsThemeBlack}) => {
                         isChecked ? 'theme-toggler__checkbox_active' : ''
                     ].join(' ')}
                 ></span>
-                {isChecked ? 'Dark Theme' : 'Light Theme'}
+                {isChecked ? 'Темная тема' : 'Светлая тема'}
             </label>
         </div>
     );
