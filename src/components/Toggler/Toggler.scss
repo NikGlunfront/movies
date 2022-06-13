@@ -16,19 +16,22 @@
         align-items: center;
         cursor: pointer;
         min-width: 200px;
-        border: 1px dashed $neon-blue-color;
+        border: 1px dashed var(--primary-blue-color);
         border-radius: 15px;
         padding: 15px;
         justify-content: space-between;
+        font-weight: 700;
+        transition: var(--transition);
     }
 
     &__checkbox {
         width: 50px;
-        height: 20px;
+        height: 23px;
         background-color: $white-color;
         border-radius: 15px;
         position: relative;
-        transition: all .6s ease;
+        transition: var(--transition);
+        border: 3px solid var(--border-color);
 
 
         &::after {
@@ -41,11 +44,11 @@
             border-radius: 50%;
             transform: translate(0, -50%);
             background-color: $dark-neon-blue-color;
-            transition: all .6s ease;
+            transition: var(--transition);
         }
 
         &_active {
-            background-color: $dark-neon-blue-color;
+            background-color: var(--secondary-blue-color);
 
             &::after {
                 background-color: $white-color;

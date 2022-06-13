@@ -1,8 +1,17 @@
 @import '../../common/colors.scss';
 
 .header {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 0 10px var(--box-shadow-color),
+        0 0 20px var(--box-shadow-color),
+        0 0 30px var(--box-shadow-color);
+    transition: var(--transition);
 
     @media screen and (max-width: 576px) {
         padding: 20px 0;
@@ -15,10 +24,11 @@
     }
 
     &__logo {
-        color: $font-primary;
+        color: var(--font-primary);
         font-size: 20px;
         font-weight: 600;
         text-decoration: none;
+        transition: var(--transition);
     }
 
     &__btns {
@@ -35,7 +45,8 @@
         svg {
             width: 100%;
             height: 100%;
-            fill: $font-primary;
+            fill: var(--font-primary);
+            transition: var(--transition);
         }
     }
 }

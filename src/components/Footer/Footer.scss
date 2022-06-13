@@ -1,16 +1,22 @@
 @import '../../common/colors.scss';
 
 .footer {
-    background-color: $secondary-color;
+    background-color: var(--secondary-color);
     margin-top: auto;
     padding: 10px 0;
     font-size: 14px;
+    box-shadow: 0 0 10px var(--box-shadow-color),
+        0 0 20px var(--box-shadow-color),
+        0 0 30px var(--box-shadow-color);
+    transition: var(--transition);
 
     &__content {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $font-primary;
+        font-weight: 700;
+        color: var(--font-primary);
+        transition: var(--transition);
         flex-direction: column;
     }
 }

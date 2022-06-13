@@ -29,14 +29,14 @@
         height: 10px;
         min-width: 6px;
         min-height: 6px;
-        background: $neon-blue-color;
+        background: var(--primary-blue-color);
         border-radius: 50%;
-        box-shadow: 0 0 10px $neon-blue-color,
-            0 0 20px $neon-blue-color,
-            0 0 30px $neon-blue-color,
-            0 0 40px $neon-blue-color,
-            0 0 50px $neon-blue-color,
-            0 0 60px $neon-blue-color;
+        box-shadow: 0 0 10px var(--primary-blue-color),
+            0 0 20px var(--primary-blue-color),
+            0 0 30px var(--primary-blue-color),
+            0 0 40px var(--primary-blue-color),
+            0 0 50px var(--primary-blue-color),
+            0 0 60px var(--primary-blue-color);
         transform: scale(0.1);
         animation: animate 1s linear infinite;
     }

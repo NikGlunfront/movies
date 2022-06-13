@@ -8,15 +8,15 @@
     min-width: 400px;
     // height: 400px;
     overflow: hidden;
-    border: 1px solid $light-grey-color;
-    box-shadow: 0 0 2px $font-primary,
-        0 0 5px $font-primary,
-        0 0 10px $font-primary;
+    border: 1px solid var(--light-border-color);
+    box-shadow: 0 0 2px var(--font-primary),
+        0 0 5px var(--font-primary),
+        0 0 10px var(--font-primary);
     border-radius: 30px;
     margin: 20px 20px 20px 0;
-    color: $font-primary;
+    color: var(--font-primary);
     text-decoration: none;
-    transition: all .3s linear;
+    transition: var(--transition);
 
     &__info {
         padding: 30px;
@@ -53,9 +53,9 @@
 
     @media screen and (min-width: 1024px) {
         &:hover {
-            box-shadow: 0 0 5px $neon-blue-color,
-                        0 0 10px $neon-blue-color,
-                        0 0 15px $neon-blue-color;
+            box-shadow: 0 0 5px var(--box-shadow-color),
+                        0 0 10px var(--box-shadow-color),
+                        0 0 15px var(--box-shadow-color);
             transform: scale(102%);
         }
     }
@@ -65,18 +65,19 @@
         margin-top: 20px;
         padding: 15px;
         margin: 20px auto;
-        border: 1px solid #F5F5F5;
+        border: 1px solid var(--light-border-color);
         border-radius: 15px;
         max-width: fit-content;
         text-decoration: none;
         color: $white-color;
+        font-weight: 700;
         background-color: $dark-neon-blue-color;
-        transition: all .3s ease;
+        transition: var(--transition);
 
         &:hover {
-            box-shadow: 0 0 5px $neon-blue-color,
-                    0 0 10px $neon-blue-color,
-                    0 0 15px $neon-blue-color;
+            box-shadow: 0 0 5px var(--box-shadow-color),
+                    0 0 10px var(--box-shadow-color),
+                    0 0 15px var(--box-shadow-color);
         }
     }
 }

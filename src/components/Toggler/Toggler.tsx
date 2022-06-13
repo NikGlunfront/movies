@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import './Toggler.scss';
 
-const Toggler = () => {
+interface TogglerProps {
+    setIsThemeBlack: (isTrue:boolean) => void
+}
+
+const Toggler: FC<TogglerProps> = ({setIsThemeBlack}) => {
     const [isChecked, setIsChecked] = useState<boolean>(true)
 
     function changeHandler() {
@@ -9,7 +13,7 @@ const Toggler = () => {
     }
 
     useEffect(() => {
-        console.log(isChecked)
+        setIsThemeBlack(isChecked)
     }, [isChecked])
 
     return (
