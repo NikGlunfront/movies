@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { changeTheme, Themes } from '../../store/slices/theme/themeSlice';
 import './Toggler.scss';
