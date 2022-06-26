@@ -1,0 +1,20 @@
+.page-button {
+    display: block;
+    padding: 15px;
+    margin: 20px auto;
+    border: 1px solid var(--light-border-color);
+    border-radius: 15px;
+    max-width: fit-content;
+    cursor: pointer;
+    text-decoration: none;
+    color: $white-color;
+    font-weight: 700;
+    background-color: $dark-neon-blue-color;
+    transition: var(--transition);
+
+    &:hover {
+        box-shadow: 0 0 5px var(--box-shadow-color),
+            0 0 10px var(--box-shadow-color),
+            0 0 15px var(--box-shadow-color);
+    }
+}

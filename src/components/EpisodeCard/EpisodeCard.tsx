@@ -27,7 +27,7 @@ const EpisodeCard: FC<MovieCardProps> = ({episode}) => {
                 <p>Дата выхода: {episode.air_date}</p>
                 <Link 
                     to={`/episode/${episode.episode_id}`}
-                    className='item-listing__btn-more' 
+                    className='page-button item-listing__btn-more' 
                 >
                     Подробнее
                 </Link>
