@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import {Link} from 'react-router-dom'
-import {FaUserCircle} from 'react-icons/fa'
+import {GoPlay} from 'react-icons/go'
 import './Header.scss'
 import Toggler from '../Toggler/Toggler';
 
@@ -17,7 +17,8 @@ const Header = () => {
                     <div className="header__btns">
                         <Toggler />
                         <div className='header__user-image'>
-                            <FaUserCircle />
+                            <GoPlay />
+                            <span>23</span>
                         </div>
                     </div>
                 </div>

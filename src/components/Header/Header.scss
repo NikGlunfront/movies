@@ -37,16 +37,38 @@
     }
 
     &__user-image {
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
         margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--font-primary);
+            color: var(--primary-color);
+            border: 3px solid var(--primary-color);
+            transition: var(--transition);
+            font-weight: 700;
+            font-size: 12px;
+            transform: translate(20%, -20%);
+        }
 
         svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--font-primary);
+            width: 50px;
+            height: 50px;
+            fill: var(--primary-blue-color);
             transition: var(--transition);
         }
+        
     }
 }

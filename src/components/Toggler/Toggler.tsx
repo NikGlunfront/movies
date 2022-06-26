@@ -13,6 +13,12 @@ const Toggler = () => {
         dispatch(changeTheme())
     }
 
+    useEffect(() => {
+        console.log(theme)
+        localStorage.setItem('theme', theme)
+        console.log(localStorage.getItem('theme'))
+    }, [theme])
+
 
     return (
         <div className="theme-toggler">

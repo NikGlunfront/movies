@@ -6,11 +6,16 @@ import Header from './components/Header/Header';
 import MovieDetails from './components/EpisodeDetails/EpisodeDetails';
 import Home from './pages/Home/Home';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
-import { useAppSelector } from './hooks/redux';
-import { Themes } from './store/slices/theme/themeSlice';
+import { useAppDispatch, useAppSelector } from './hooks/redux';
+import { changeTheme, Themes } from './store/slices/theme/themeSlice';
 
 const App = () => {
     const {theme} = useAppSelector(state => state.theme)
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        localStorage.getItem('theme') === Themes.LIGHT && dispatch(changeTheme())
+    }, [])
 
     return (
         <div className=
@@ -23,7 +28,7 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='episode/:imdID' element={<MovieDetails />} />
+                    <Route path='episode/:movieID' element={<MovieDetails />} />
                     <Route path='*' element={<PageNotFound />} />
                 </Routes>
                 <Footer />
