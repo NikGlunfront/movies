@@ -14,9 +14,7 @@ const Toggler = () => {
     }
 
     useEffect(() => {
-        console.log(theme)
-        localStorage.setItem('theme', theme)
-        console.log(localStorage.getItem('theme'))
+        theme === Themes.LIGHT && setIsChecked(false)
     }, [theme])
 
 

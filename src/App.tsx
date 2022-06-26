@@ -17,6 +17,10 @@ const App = () => {
         localStorage.getItem('theme') === Themes.LIGHT && dispatch(changeTheme())
     }, [])
 
+    useEffect(() => {
+        localStorage.setItem('theme', theme)
+    }, [theme])
+
     return (
         <div className=
             {[
