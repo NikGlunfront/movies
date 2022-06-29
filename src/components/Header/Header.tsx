@@ -5,20 +5,30 @@ import './Header.scss'
 import Toggler from '../Toggler/Toggler';
 import 'simplebar/dist/simplebar.min.css';
 import HeaderMenu from './HeaderMenu';
+import { useAppSelector } from '../../hooks/redux';
 
 
 
 const Header = () => {
     const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
+    const {activeEpisodes} = useAppSelector(state => state.activeEpisodes)
 
     function toggleMenu() {
         setIsMenuVisible(!isMenuVisible)
     }
 
+    function closeMenu() {
+        setIsMenuVisible(false)
+    }
+
     return (
         <header className='header'>
             <div className="container">
-                <HeaderMenu isMenuVisible={isMenuVisible} />
+                <HeaderMenu 
+                    isMenuVisible={isMenuVisible} 
+                    activeEpisodes={activeEpisodes}
+                    closeMenu={closeMenu}
+                />
                 <div className='header__content'>
                     <Link className='header__logo' to={'/'}>
                         <span>Breaking Bad Series</span>
@@ -30,7 +40,7 @@ const Header = () => {
                             onClick={toggleMenu}
                         >
                             <GoPlay />
-                            <span>23</span>
+                            <span>{activeEpisodes.length}</span>
                         </div>
                     </div>
                 </div>

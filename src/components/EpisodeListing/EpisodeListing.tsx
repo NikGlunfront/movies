@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../hooks/redux';
 import { IEpisode } from '../../models/IEpisode';
-import { updateActiveEpisodes } from '../../store/slices/episodes/activeEpisodesIdSlice';
 import EpisodeCard from '../EpisodeCard/EpisodeCard';
 import Spinner from '../Spinner/Spinner';
 import './EpisodeListing.scss';
@@ -22,7 +21,6 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
     const [isSpinnerLoading, setIsSpinnerLoading] = useState<boolean>(true)
     const seasonsArr: number[] = Array.from(Array(seasonsCount + 1).keys()).slice(1)
     const {activeEpisodes, isFirstLoadingActiveEpisodes} = useAppSelector(state => state.activeEpisodes)
-    const dispatch = useAppDispatch()
 
     useEffect(() => {
         if (!isFirstLoadingActiveEpisodes) {
@@ -31,10 +29,6 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
     }, [activeEpisodes])
 
     useEffect(() => {
-        let storageActiveEpisodes = localStorage.getItem('activeEpisodes')
-        if (isFirstLoadingActiveEpisodes) {
-            storageActiveEpisodes && dispatch(updateActiveEpisodes(storageActiveEpisodes.split(',')))
-        }
         setTimeout(() => {
             setIsSpinnerLoading(isLoading)
         }, 1000);

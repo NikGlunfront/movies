@@ -8,13 +8,19 @@ import Home from './pages/Home/Home';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { changeTheme, Themes } from './store/slices/theme/themeSlice';
+import { updateActiveEpisodes } from './store/slices/episodes/activeEpisodesIdSlice';
 
 const App = () => {
     const {theme} = useAppSelector(state => state.theme)
     const dispatch = useAppDispatch()
+    const {isFirstLoadingActiveEpisodes} = useAppSelector(state => state.activeEpisodes)
 
     useEffect(() => {
         localStorage.getItem('theme') === Themes.LIGHT && dispatch(changeTheme())
+        let storageActiveEpisodes = localStorage.getItem('activeEpisodes')
+        if (isFirstLoadingActiveEpisodes) {
+            storageActiveEpisodes && dispatch(updateActiveEpisodes(storageActiveEpisodes.split(',')))
+        }
     }, [])
 
     useEffect(() => {
