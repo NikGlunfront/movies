@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import episodes from './slices/episodes/episodesSlice';
 import theme from './slices/theme/themeSlice';
+import activeEpisodes from './slices/episodes/activeEpisodesIdSlice';
 
 const rootReducer = combineReducers({
     episodes,
-    theme
+    theme,
+    activeEpisodes
 })
 
 export const setupStore = () => {
