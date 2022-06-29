@@ -9,6 +9,7 @@ import PageNotFound from './pages/PageNotFound/PageNotFound';
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { changeTheme, Themes } from './store/slices/theme/themeSlice';
 import { updateActiveEpisodes } from './store/slices/episodes/activeEpisodesIdSlice';
+import { fetchEpisodes } from './store/slices/episodes/episodesFetch';
 
 const App = () => {
     const {theme} = useAppSelector(state => state.theme)
@@ -17,6 +18,7 @@ const App = () => {
 
     useEffect(() => {
         localStorage.getItem('theme') === Themes.LIGHT && dispatch(changeTheme())
+        dispatch(fetchEpisodes())
         let storageActiveEpisodes = localStorage.getItem('activeEpisodes')
         if (isFirstLoadingActiveEpisodes) {
             storageActiveEpisodes && dispatch(updateActiveEpisodes(storageActiveEpisodes.split(',')))
@@ -38,7 +40,7 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path='/' element={<Home />} />
-                    <Route path='episode/:movieID' element={<MovieDetails />} />
+                    <Route path='episode/:episodeID' element={<MovieDetails />} />
                     <Route path='*' element={<PageNotFound />} />
                 </Routes>
                 <Footer />

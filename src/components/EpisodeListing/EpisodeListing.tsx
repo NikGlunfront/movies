@@ -32,7 +32,7 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
         setTimeout(() => {
             setIsSpinnerLoading(isLoading)
         }, 1000);
-    }, [])
+    }, [isLoading])
 
     return (
         <section className="section movie-listing">

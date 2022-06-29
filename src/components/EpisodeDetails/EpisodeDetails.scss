@@ -1,0 +1,8 @@
+.details {
+    display: flex;
+    &__content {
+        span {
+            display: block;
+        }
+    }
+}
