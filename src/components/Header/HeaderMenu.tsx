@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import SimpleBar from 'simplebar-react';
 import { useAppSelector } from '../../hooks/redux';
 import HeaderMenuItem from './HeaderMenuItem';

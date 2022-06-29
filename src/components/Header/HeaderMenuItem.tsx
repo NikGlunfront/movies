@@ -32,8 +32,16 @@ const HeaderMenuItem: FC<HeaderMenuItemProps> = ({episode, closeMenu}) => {
                     <span><strong>Эпизод №{episode.episode}. </strong>{episode.title}</span>
                 </div>
                 <div className="movie-to-watch__buttons">
-                    <button onClick={deleteEpisodeFromList} className='page-button movie-to-watch__delete'>Удалить</button>
-                    <button onClick={handleExpandEpisode} className='page-button movie-to-watch__expand-episode'>Перейти к описанию</button>
+                    <button 
+                        onClick={deleteEpisodeFromList} 
+                        className='page-button movie-to-watch__delete'>
+                            Удалить
+                    </button>
+                    <button 
+                        onClick={handleExpandEpisode} 
+                        className='page-button movie-to-watch__expand-episode'>
+                            Перейти к описанию
+                    </button>
                 </div>
             </div>
         </div>
