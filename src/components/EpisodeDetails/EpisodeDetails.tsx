@@ -12,9 +12,11 @@ const EpisodeDetails = () => {
     let currentEpisode = episodes.filter(episode => episodeID && episode.episode_id === parseInt(episodeID))[0]
 
     useEffect(() => {
-        setTimeout(() => {
-            setIsSpinnerLoading(isLoading)
-        }, 1000);
+        if (!isLoading) {
+            setTimeout(() => {
+                setIsSpinnerLoading(isLoading)
+            }, 1000);
+        }
     }, [isLoading])
 
 

@@ -29,9 +29,11 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
     }, [activeEpisodes])
 
     useEffect(() => {
-        setTimeout(() => {
-            setIsSpinnerLoading(isLoading)
-        }, 1000);
+        if (!isLoading) {
+            setTimeout(() => {
+                setIsSpinnerLoading(isLoading)
+            }, 1000);
+        }
     }, [isLoading])
 
     return (
