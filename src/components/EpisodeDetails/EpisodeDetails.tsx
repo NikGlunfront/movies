@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
 import { IEpisode } from '../../models/IEpisode';
+import Section from '../Containers/Section';
 import Spinner from '../Spinner/Spinner';
 import './EpisodeDetails.scss';
 
@@ -37,22 +38,20 @@ const EpisodeDetails = () => {
     }
 
     return (
-        <section className='section details'>
-            <div className="container">
-                <div className="details__content">
-                        <span><strong>Сезон {currentEpisode.season}. Эпизод №{currentEpisode.episode}</strong></span>
-                        <span>{currentEpisode.title}</span>
-                        <div className='details__actors'>
-                            <span>Список актеров:</span>
-                            {currentEpisode.characters.map((actor, index) =>
-                                <div key={index} className='actor-item'>
-                                    {actor}
-                                </div>    
-                            )}
-                        </div>
-                    </div>
+        <Section className='details'>
+            <div className="details__content">
+                <span><strong>Сезон {currentEpisode.season}. Эпизод №{currentEpisode.episode}</strong></span>
+                <span>{currentEpisode.title}</span>
+                <div className='details__actors'>
+                    <span>Список актеров:</span>
+                    {currentEpisode.characters.map((actor, index) =>
+                        <div key={index} className='actor-item'>
+                            {actor}
+                        </div>    
+                    )}
                 </div>
-        </section>
+            </div>
+        </Section>
     );
 };
 

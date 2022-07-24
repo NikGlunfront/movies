@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useAppSelector } from '../../hooks/redux';
 import { IEpisode } from '../../models/IEpisode';
+import Section from '../Containers/Section';
 import EpisodeCard from '../EpisodeCard/EpisodeCard';
 import Spinner from '../Spinner/Spinner';
 import './EpisodeListing.scss';
@@ -37,8 +38,7 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
     }, [isLoading])
 
     return (
-        <section className="section movie-listing">
-            <div className="container">
+        <Section className='movie-listing'>
                 {isSpinnerLoading 
                     ? <Spinner width={200} />
                     : 
@@ -72,8 +72,7 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
                     
                     </div>
                 }
-            </div>
-        </section>
+        </Section>
     );
 };
 
