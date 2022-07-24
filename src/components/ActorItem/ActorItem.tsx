@@ -9,10 +9,10 @@ interface ActorItemProps {
 
 const ActorItem: FC<ActorItemProps> = ({actor}) => {
     return (
-        <CustomBox>
+        <CustomBox className='actor-item'>
             <Link 
                 to={`/character/${actor}`}
-                className='actor-item'
+                className='actor-item__inner'
             >
                 {actor}
             </Link>

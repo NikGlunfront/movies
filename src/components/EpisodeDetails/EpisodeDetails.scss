@@ -1,8 +1,36 @@
 .details {
     display: flex;
+    p {
+        margin: 10px 0;
+    }
+
+    &__img {
+        display: block;
+        max-width: 50%;
+        object-fit: contain;
+        max-height: 300px;
+        float: left;
+        margin: 0 20px 20px 0;
+        border-radius: 30px;
+    }
+
     &__content {
+        margin-bottom: 40px;
+        min-height: 300px;
+
         span {
             display: block;
         }
+    }
+
+    &__actors {
+        p {
+            text-align: center;
+            font-weight: 700;
+        }
+    }
+
+    &__actors-row {
+        justify-content: center;
     }
 }

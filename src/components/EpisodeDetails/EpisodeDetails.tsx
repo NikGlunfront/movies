@@ -8,6 +8,7 @@ import Row from '../Containers/Row/Row';
 import Section from '../Containers/Section/Section';
 import Spinner from '../Spinner/Spinner';
 import './EpisodeDetails.scss';
+import episodeImage from '../../assets/card-image.jpg';
 
 const EpisodeDetails = () => {
     const {episodeID} = useParams()
@@ -41,19 +42,21 @@ const EpisodeDetails = () => {
     return (
         <Section className='details'>
             <div className="details__content">
-                <span><strong>Сезон {currentEpisode.season}. Эпизод №{currentEpisode.episode}</strong></span>
-                <span>{currentEpisode.title}</span>
-                <div className='details__actors'>
-                    <span>Список актеров:</span>
-                    <Row>
-                        {currentEpisode.characters.map((actor, index) =>
-                            <ActorItem 
-                                actor={actor} 
-                                key={index} 
-                            />
-                        )}
-                    </Row>
-                </div>
+                <img src={episodeImage} alt="episode" className='details__img' />
+                <p><strong>Сезон {currentEpisode.season}. Эпизод №{currentEpisode.episode}</strong></p>
+                <p><strong>Название:</strong> {currentEpisode.title}</p>
+                <p><strong>Дата выхода:</strong> {currentEpisode.air_date}</p>
+            </div>
+            <div className='details__actors'>
+                <p>Список актеров:</p>
+                <Row className='details__actors-row'>
+                    {currentEpisode.characters.map((actor, index) =>
+                        <ActorItem 
+                            actor={actor} 
+                            key={index} 
+                        />
+                    )}
+                </Row>
             </div>
         </Section>
     );
