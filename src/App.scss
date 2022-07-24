@@ -8,11 +8,10 @@ body {
     background-color: $primary-color;
 }
 
-.section {
-    padding: 20px 0;
-    margin: 30px 0;
-    flex: 1;
-}
+/*Containers Styles imports*/
+@import './components/Containers/CustomBox/CustomBox.scss';
+@import './components/Containers/Section/Section.scss';
+@import './components/Containers/Row/Row.scss';
 
 ::-webkit-scrollbar {
     width: 10px;

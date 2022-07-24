@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import '../ActorItem/ActorItem.scss';
+import CustomBox from '../Containers/CustomBox/CustomBox';
 
 interface ActorItemProps {
     actor: string
@@ -8,12 +9,14 @@ interface ActorItemProps {
 
 const ActorItem: FC<ActorItemProps> = ({actor}) => {
     return (
-        <Link 
-            to={`/character/${actor}`}
-            className='actor-item'
-        >
-            {actor}
-        </Link>
+        <CustomBox>
+            <Link 
+                to={`/character/${actor}`}
+                className='actor-item'
+            >
+                {actor}
+            </Link>
+        </CustomBox>
     );
 };
 

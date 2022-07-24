@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import '../Row/Row.scss';
 
 interface RowProps {
     children: React.ReactNode,
