@@ -7,7 +7,7 @@ interface SectionProps {
 
 const Section: FC<SectionProps> = ({className, children}) => {
     return (
-        <section className={className ? `section + ${className}` : 'section'}>
+        <section className={className ? 'section ' + `${className}` : 'section'}>
             <div className="container">
                 {children}
             </div>

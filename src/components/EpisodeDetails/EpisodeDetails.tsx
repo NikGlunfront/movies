@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/redux';
 import { IEpisode } from '../../models/IEpisode';
-import Section from '../Containers/Section';
+import ActorItem from '../ActorItem/ActorItem';
+import Row from '../Containers/Row/Row';
+import Section from '../Containers/Section/Section';
 import Spinner from '../Spinner/Spinner';
 import './EpisodeDetails.scss';
 
@@ -30,11 +33,9 @@ const EpisodeDetails = () => {
     }
 
     if (error) {
-        <section className='section details'>
-            <div className="container">
-                <span>error</span>
-            </div>
-        </section>
+        <Section>
+            <span>{error}</span>
+        </Section>
     }
 
     return (
@@ -44,11 +45,14 @@ const EpisodeDetails = () => {
                 <span>{currentEpisode.title}</span>
                 <div className='details__actors'>
                     <span>Список актеров:</span>
-                    {currentEpisode.characters.map((actor, index) =>
-                        <div key={index} className='actor-item'>
-                            {actor}
-                        </div>    
-                    )}
+                    <Row>
+                        {currentEpisode.characters.map((actor, index) =>
+                            <ActorItem 
+                                actor={actor} 
+                                key={index} 
+                            />
+                        )}
+                    </Row>
                 </div>
             </div>
         </Section>

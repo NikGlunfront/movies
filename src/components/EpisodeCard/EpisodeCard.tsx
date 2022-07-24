@@ -6,6 +6,7 @@ import image from '../../assets/card-image.jpg'
 import {AiFillHeart} from 'react-icons/ai';
 import { useAppDispatch } from '../../hooks/redux';
 import { deleteActiveEpisode, setActiveEpisode } from '../../store/slices/episodes/activeEpisodesIdSlice';
+import CustomBox from '../Containers/CustomBox/CustomBox';
 
 interface MovieCardProps {
     episode: IEpisode,
@@ -24,7 +25,7 @@ const EpisodeCard: FC<MovieCardProps> = ({episode, isActive}) => {
     }
 
     return (
-        <div  
+        <CustomBox  
             className='item-listing'
         >
             <Link 
@@ -57,7 +58,7 @@ const EpisodeCard: FC<MovieCardProps> = ({episode, isActive}) => {
                 </div>
             </div>
             
-        </div>
+        </CustomBox>
     );
 };
 

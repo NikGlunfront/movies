@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import { useAppSelector } from '../../hooks/redux';
 import { IEpisode } from '../../models/IEpisode';
-import Section from '../Containers/Section';
+import Row from '../Containers/Row/Row';
+import Section from '../Containers/Section/Section';
 import EpisodeCard from '../EpisodeCard/EpisodeCard';
 import Spinner from '../Spinner/Spinner';
 import './EpisodeListing.scss';
@@ -59,7 +60,7 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
                         </div>
                         {error
                             ? <div className='movie-listing__error'>{error}</div>
-                            : <div className="movie-listing__box">
+                            : <Row className="movie-listing__box">
                                 {episodes.map(episode => 
                                     <EpisodeCard 
                                         episode={episode}
@@ -67,7 +68,7 @@ const EpisodeListing: FC<EpisodeListingProps> = ({
                                         key={episode.episode_id}
                                     />
                                 )}
-                            </div>
+                            </Row>
                         }
                     
                     </div>

@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from './hooks/redux';
 import { changeTheme, Themes } from './store/slices/theme/themeSlice';
 import { updateActiveEpisodes } from './store/slices/episodes/activeEpisodesIdSlice';
 import { fetchEpisodes } from './store/slices/episodes/episodesFetch';
+import CharacterPage from './pages/Character/CharacterPage';
 
 const App = () => {
     const {theme} = useAppSelector(state => state.theme)
@@ -41,6 +42,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='episode/:episodeID' element={<MovieDetails />} />
+                    <Route path='character/:characterName' element={<CharacterPage />} />
                     <Route path='*' element={<PageNotFound />} />
                 </Routes>
                 <Footer />
